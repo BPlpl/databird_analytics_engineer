@@ -22,3 +22,152 @@ models:
         tests:
           - unique
           - not_null
+
+
+  - name: stg_local_bike__customers
+    description: private information provided by customers
+    columns:
+      - name: customer_id
+        description: id of the customer
+      - name: first_name
+        description: first name of the customer
+      - name: last_name
+        description: last name of the customer
+      - name: phone
+        description: phone number of the customer
+      - name: email
+        description: email address of the customer
+      - name: street
+        description: street and house number of the customer's address
+      - name: city
+        description: city of the customer's address
+      - name: state
+        description: state code of the customer's address
+      - name: zip_code
+        description: zip code of the customer's address
+        tests:
+          - unique
+          - not_null
+
+
+  - name: stg_local_bike__order_items
+    description: items in order, with price, discount and quantity
+    columns:
+      - name: order_item_id
+        description: id of the order item
+      - name: order_id
+        description: id of the order
+      - name: item_id
+        description: rank of the item in order
+      - name: product_id
+        description: product id of the order item
+      - name: quantity
+        description: quantity of the product in order
+      - name: list_unit_price_usd
+        description: listing usd unit price of the product (before discount)
+      - name: discount_pct
+        description: discount applied on product (in percentages)
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_local_bike__orders
+    description: all orders
+    columns:
+      - name: order_id
+        description: id of the order
+      - name: customer_id
+        description: id of the customer
+      - name: order_status
+        description: status of the order
+      - name: ordered_on
+        description: creation date of the order
+      - name: required_on
+        description: requirement date of the shipping
+      - name: shipped_on
+        description: shipping date of the order items
+      - name: store_id
+        description: id of the store where the order was created
+      - name: staff_id
+        description: id of the staff who created the order
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_local_bike__products
+    description: all products of the catalog
+    columns:
+      - name: product_id
+        description: id of the product
+      - name: product_name
+        description: name of the product
+      - name: brand_id
+        description: id of the product brand
+      - name: category_id
+        description: id of the product category
+      - name: model_year
+        description: model year of the product
+      - name: list_unit_price_usd
+        description: unit listing price of the product in usd
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_local_bike__staffs
+    description: staff employees of the company
+    columns:
+      - name: staff_id
+        description: id of the employee
+      - name: first_name
+        description: first name of the employee
+      - name: last_name
+        description: last name of the employee
+      - name: phone
+        description: phone number of the employee
+      - name: email
+        description: work email address of the employee
+      - name: active
+        description: boolean indicating whether the employee is active
+      - name: store_id
+        description: id of the store in which the employee is working
+      - name: manager_id
+        description: id of the manager of the employee
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_local_bike__stocks
+    description: current stock of the company
+    columns:
+      - name: store_id
+        description: id of the store with stock
+      - name: product_id
+        description: if of the product in stock
+      - name: quantity
+        description: quantity of the product within the store
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_local_bike__stores
+    description: stores of the company
+    columns:
+      - name: store_id
+        description: id of the store
+      - name: store_name
+        description: name of the store
+      - name: phone
+        description: phone number of the store
+      - name: email
+        description: email address of the store
+      - name: street
+        description: street and house number of the store's address
+      - name: city
+        description: city of the store's address
+      - name: state
+        description: state code of the store's address
+      - name: zip_code
+        description: zip code of the store's address
+        tests:
+          - unique
+          - not_null
