@@ -6,29 +6,31 @@ models:
     columns:
       - name: brand_id
         description: id of the brand
-      - name: brand_name
-        description: name of the brand
         tests:
           - unique
           - not_null
+      - name: brand_name
+        description: name of the brand
 
   - name: stg_local_bike__categories
     description: bikes categories
     columns:
       - name: category_id
         description: id of the category
-      - name: category_name
-        description: name of the category
         tests:
           - unique
           - not_null
-
+      - name: category_name
+        description: name of the category
 
   - name: stg_local_bike__customers
     description: private information provided by customers
     columns:
       - name: customer_id
         description: id of the customer
+        tests:
+          - unique
+          - not_null
       - name: first_name
         description: first name of the customer
       - name: last_name
@@ -45,16 +47,15 @@ models:
         description: state code of the customer's address
       - name: zip_code
         description: zip code of the customer's address
-        tests:
-          - unique
-          - not_null
-
 
   - name: stg_local_bike__order_items
     description: items in order, with price, discount and quantity
     columns:
       - name: order_item_id
         description: id of the order item
+        tests:
+          - unique
+          - not_null
       - name: order_id
         description: id of the order
       - name: item_id
@@ -67,15 +68,15 @@ models:
         description: listing usd unit price of the product (before discount)
       - name: discount_pct
         description: discount applied on product (in percentages)
-        tests:
-          - unique
-          - not_null
 
   - name: stg_local_bike__orders
     description: all orders
     columns:
       - name: order_id
         description: id of the order
+        tests:
+          - unique
+          - not_null
       - name: customer_id
         description: id of the customer
       - name: order_status
@@ -90,15 +91,15 @@ models:
         description: id of the store where the order was created
       - name: staff_id
         description: id of the staff who created the order
-        tests:
-          - unique
-          - not_null
 
   - name: stg_local_bike__products
     description: all products of the catalog
     columns:
       - name: product_id
         description: id of the product
+        tests:
+          - unique
+          - not_null
       - name: product_name
         description: name of the product
       - name: brand_id
@@ -109,15 +110,15 @@ models:
         description: model year of the product
       - name: list_unit_price_usd
         description: unit listing price of the product in usd
-        tests:
-          - unique
-          - not_null
 
   - name: stg_local_bike__staffs
     description: staff employees of the company
     columns:
       - name: staff_id
         description: id of the employee
+        tests:
+          - unique
+          - not_null
       - name: first_name
         description: first name of the employee
       - name: last_name
@@ -132,9 +133,6 @@ models:
         description: id of the store in which the employee is working
       - name: manager_id
         description: id of the manager of the employee
-        tests:
-          - unique
-          - not_null
 
   - name: stg_local_bike__stocks
     description: current stock of the company
@@ -145,15 +143,15 @@ models:
         description: if of the product in stock
       - name: quantity
         description: quantity of the product within the store
-        tests:
-          - unique
-          - not_null
 
   - name: stg_local_bike__stores
     description: stores of the company
     columns:
       - name: store_id
         description: id of the store
+        tests:
+          - unique
+          - not_null
       - name: store_name
         description: name of the store
       - name: phone
@@ -168,6 +166,3 @@ models:
         description: state code of the store's address
       - name: zip_code
         description: zip code of the store's address
-        tests:
-          - unique
-          - not_null
