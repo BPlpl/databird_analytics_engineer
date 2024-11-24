@@ -18,6 +18,7 @@ SELECT
     o.order_id
     ,o.customer_id
     ,o.order_status
+    mFORMAT_DATE('%Y_%m', o.ordered_on) as order_month
     ,o.ordered_on
     ,o.shipped_on
     ,DATE_DIFF(o.shipped_on, o.ordered_on, DAY) AS delivery_speed
