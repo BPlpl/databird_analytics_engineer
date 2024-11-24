@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_local_bike__brands
+    description: bikes brand names
+    columns:
+      - name: brand_id
+        description: id of the brand
+      - name: brand_name
+        description: name of the brand
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_local_bike__categories
+    description: bikes categories
+    columns:
+      - name: category_id
+        description: id of the category
+      - name: category_name
+        description: name of the category
+        tests:
+          - unique
+          - not_null
