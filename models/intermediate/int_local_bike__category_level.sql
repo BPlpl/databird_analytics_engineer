@@ -1,6 +1,6 @@
 
 SELECT  
-    p.product_category
+    c.category_name
     ,o.store_id
     ,FORMAT_DATE('%Y_%m', o.ordered_on) as order_month
     ,sum(oi.quantity) as products_sold
@@ -10,7 +10,8 @@ SELECT
 
 FROM 
     {{ ref('stg_local_bike__products') }} p
+    LEFT JOIN {{ ref('stg_local_bike__categories') }} c on c.category_id = p.category_id
     LEFT JOIN {{ ref('stg_local_bike__order_items') }} oi on oi.product_id = p.product_id
     LEFT JOIN {{ ref('stg_local_bike__orders') }} o on o.order_id = oi.order_id
 
-GROUP BY p.product_category, o.store_id, order_month
+GROUP BY c.category_name, o.store_id, order_month
