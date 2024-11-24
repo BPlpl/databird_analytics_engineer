@@ -1,6 +1,14 @@
 version: 2
 sources:
-  - name: airbnb
-    schema: airbnb_listing
+  - name: local_bike
+    schema: local_bike
     tables:
-    - name: listings
+    - name: brands
+    - name: categories
+    - name: customers
+    - name: order_items
+    - name: orders
+    - name: products
+    - name: staffs
+    - name: stocks
+    - name: stores
