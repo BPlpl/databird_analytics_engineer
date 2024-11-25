@@ -1,5 +1,5 @@
 SELECT
-    store_id
+    CAST(store_id as string) as store_id
     ,store_name
     ,phone
     ,email

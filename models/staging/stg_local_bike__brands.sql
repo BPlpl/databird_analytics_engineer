@@ -1,5 +1,5 @@
 SELECT
-    brand_id
+    CAST(brand_id AS string) as brand_id
     ,brand_name
 
 FROM

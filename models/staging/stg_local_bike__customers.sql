@@ -1,5 +1,5 @@
 SELECT
-    customer_id
+    CAST(customer_id as string) as customer_id
     ,first_name
     ,last_name
     ,phone
