@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_local_bike__order_level
+    description: aggregated kpis on order level
+    columns:
+      - name: order_id
+        description: id of the order
+        tests:
+          - unique
+          - not_null
