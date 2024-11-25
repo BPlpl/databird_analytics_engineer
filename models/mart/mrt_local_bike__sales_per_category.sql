@@ -1,5 +1,6 @@
 SELECT  
     s.store_name
+    ,FORMAT_DATE('%Y', o.ordered_on) as order_year
     ,FORMAT_DATE('%Y_%m', o.ordered_on) as order_month
     ,c.category_name
 
@@ -15,4 +16,4 @@ FROM
     LEFT JOIN {{ ref('stg_local_bike__categories') }} c on c.category_id = p.category_id
     LEFT JOIN {{ ref('stg_local_bike__stores') }} s on s.store_id = o.store_id
 
-GROUP BY c.category_name, s.store_name, order_month
+GROUP BY c.category_name, s.store_name, order_year, order_month

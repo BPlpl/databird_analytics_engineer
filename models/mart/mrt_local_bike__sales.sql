@@ -1,5 +1,6 @@
 SELECT
     store_name
+    ,left(order_month,4) as order_year
     ,order_month
 
     ,count(order_id) as orders_created
@@ -18,4 +19,4 @@ SELECT
 FROM 
     {{ ref('int_local_bike__order_level') }}
 
-GROUP BY store_name, order_month
+GROUP BY store_name, order_year, order_month
