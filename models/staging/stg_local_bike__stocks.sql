@@ -1,6 +1,6 @@
 SELECT
-    store_id
-    ,product_id
+    CAST(store_id as string) as store_id
+    ,CAST(product_id AS string) as product_id
     ,quantity
 
 FROM
