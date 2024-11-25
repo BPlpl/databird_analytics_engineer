@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: mrt_local_bike__sales
+    description: aggregated monthly sales kpis on store level
+    columns:
+      - name: store_name
+        description: name of the store
+        tests:
+          - not_null
+      - name: order_month
+        description: month when the order was created
+        tests:
+          - not_null
+
+  - name: mrt_local_bike__sales_per_category
+    description: aggregated monthly sales kpis on store level, per bike category
+    columns:
+      - name: store_name
+        description: name of the store
+        tests:
+          - not_null
+      - name: order_month
+        description: month when the order was created
+        tests:
+          - not_null
+      - name: category_name
+        description: bike category
+        tests:
+          - not_null
+
+  - name: mrt_local_bike__stocks
+    description: current inventory per store and category
+    columns:
+      - name: store_name
+        description: name of the store
+        tests:
+          - not_null
+      - name: category_name
+        description: bike category
+        tests:
+          - not_null
