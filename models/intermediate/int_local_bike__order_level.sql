@@ -22,7 +22,7 @@ SELECT
     ,o.ordered_on
     ,o.shipped_on
     ,DATE_DIFF(o.shipped_on, o.ordered_on, DAY) AS delivery_speed
-    ,o.store_id
+    ,s.store_name
     ,o.staff_id
 
     ,oia.total_products_in_order
@@ -33,4 +33,5 @@ SELECT
 
 FROM 
     {{ ref('stg_local_bike__orders') }} o
+    LEFT JOIN {{ ref('stg_local_bike__stores') }} s on s.store_id = o.store_id
     LEFT JOIN order_item_agg oia on oia.order_id = o.order_id
